@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
 import React from 'react'
 import tw from 'tailwind-react-native-classnames'
-import NavOptions from '../components/NavOptions'
+import NavBar from '../components/NavBar'
 
 const HomeScreen = () => {
   return (
@@ -17,7 +17,7 @@ const HomeScreen = () => {
                 uri: "https://as1.ftcdn.net/v2/jpg/04/18/01/54/1000_F_418015405_gym5TXugGl1D90UTf9wmb86n9JuddmkA.jpg",
             }}
             />
-        <NavOptions/>
+        <NavBar/>
         </View>
     </SafeAreaView>
   )
