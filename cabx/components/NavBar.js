@@ -1,6 +1,8 @@
 import {  FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import tw from 'tailwind-react-native-classnames'
+import { Icon } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 
 const data = [
     {
@@ -12,13 +14,15 @@ const data = [
     },
     {
         id: "2",
-        title: "Dine In / Order Food",
+        title: "Order Food",
         image: "https://i.pinimg.com/originals/94/ee/2f/94ee2fda4931c26b3c55ed23d28e885e.png",
         screen: "EatScreen",
     }
 ]
 
 const NavBar = () => {
+    const navigation = useNavigation();
+
   return (   
     <FlatList
         horizontal
@@ -26,6 +30,7 @@ const NavBar = () => {
         keyExtractor={(item) => item.id}        
         renderItem={({item}) => (
             <TouchableOpacity
+                onPress={() => navigation.navigate(item.screen)}
                 style={tw `bg-blue-200 p-2 pl-5 pb-6 pt-4 m-3 w-50`}
             >
                 <View>
@@ -39,7 +44,13 @@ const NavBar = () => {
                         {uri: item.image}
                     }/>
                     <Text style={tw `mt-2 text-lg font-semibold`}>{item.title}</Text>
+                    <Icon 
+                    style={tw`p-2 bg-black rounded-full w-10 mt-5`}
+                    name="arrowright" 
+                    color="white"
+                    type="antdesign"
 
+                    />
                     
                 </View>
             </TouchableOpacity>
